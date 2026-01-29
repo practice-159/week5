@@ -10,6 +10,7 @@ import Pagination from "./components/Pagination";
 import ProductModalComponent from "./components/ProductModalComponent";
 const App = () => {
   console.log("@ 執行 App 元件");
+  console.log(`信箱測試 ： ${import.meta.env.VITE_EMAIL}`);
   // week1 - 產品列表
   const [productList, setProductList] = useState<productType[]>([]);
 

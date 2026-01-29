@@ -14,8 +14,8 @@ const Login = ({
     password: string;
     username: string;
   }>({
-    username: "",
-    password: "",
+    username: import.meta.env.VITE_EMAIL,
+    password: import.meta.env.VITE_PASSWORD,
   });
   // week1 - 帳號密碼
   const handleLoginInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -60,33 +60,34 @@ const Login = ({
         handleLoginSubmit(e);
       }}
     >
-      <div className="form-group">
-        {/* 帳號 */}
-        <label htmlFor="username">Email address</label>
+      {/*  */}
+      <div className="form-floating mb-3">
         <input
           type="email"
           id="username"
           name="username"
           className="form-control"
           value={account.username}
-          placeholder="Enter email"
-          aria-describedby="emailHelp"
+          placeholder="name@example.com"
           onChange={(e) => handleLoginInputChange(e)}
         />
+        <label htmlFor="username">Email address</label>
       </div>
-      <div className="form-group">
-        {/* 密碼 */}
-        <label htmlFor="password">Password</label>
+      <div className="form-floating">
         <input
           id="password"
-          name="password"
           type="password"
+          name="password"
           placeholder="Password"
           className="form-control"
           value={account.password}
           onChange={(e) => handleLoginInputChange(e)}
         />
+        <label htmlFor="floatingPassword">Password</label>
       </div>
+
+      {/*  */}
+
       <button type="submit" className="btn btn-primary mt-3">
         登入
       </button>
