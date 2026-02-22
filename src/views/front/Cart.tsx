@@ -1,15 +1,16 @@
 import axios, { isAxiosError } from "axios";
 import { useState, useEffect } from "react";
 
+import type { Root } from "../../types/cartProductType";
+
 import { currency } from "../../utils/filter";
 import ReactToast from "../../components/ReactToast";
 import { errorNotify, successNotify } from "../../utils/toast";
-
 const API_PATH = import.meta.env.VITE_API_PATH;
 const API_BASE_URL = import.meta.env.VITE_API_BASE;
 
 const Cart = () => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState<Root>();
 
   const getCart = async () => {
     try {
@@ -154,7 +155,7 @@ const Cart = () => {
               <td colSpan={3} className="text-end">
                 總計
               </td>
-              <td className="text-start">{currency(cart.final_total)}</td>
+              <td className="text-start">{currency(cart?.final_total)}</td>
             </tr>
           </tfoot>
         </table>

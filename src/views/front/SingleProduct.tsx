@@ -2,6 +2,8 @@ import axios from "axios";
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 
+import type { Product } from "../../types/cartProductType";
+
 import ReactToast from "../../components/ReactToast";
 import { errorNotify, successNotify } from "../../utils/toast";
 
@@ -9,8 +11,8 @@ const API_PATH = import.meta.env.VITE_API_PATH;
 const API_BASE_URL = import.meta.env.VITE_API_BASE;
 
 const SingleProduct = () => {
-  const { id } = useParams();
-  const [product, setProduct] = useState();
+  const { id = "" } = useParams<string>()!;
+  const [product, setProduct] = useState<Product>();
 
   useEffect(() => {
     const handleView = async (id: string) => {

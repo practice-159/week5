@@ -8,7 +8,6 @@ import ReactToast from "../components/ReactToast";
 import { errorNotify, successNotify } from "../utils/toast";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE;
-const API_PATH = import.meta.env.VITE_API_PATH;
 
 const axiosInstance = axios.create({
   baseURL: API_BASE_URL,
@@ -51,9 +50,9 @@ const Login = ({
         navigate("/");
       }, 5000);
       fetchProducts();
-      // setIsAuthenticated(true);
+      setIsAuthenticated(true);
     } catch (error) {
-      // setIsAuthenticated(false);
+      setIsAuthenticated(false);
       if (axios.isAxiosError(error)) {
         console.log(error.response);
         errorNotify(error.response?.data.error.message);

@@ -3,11 +3,13 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 
+import type { Product } from "../../types/cartProductType";
+
 const API_PATH = import.meta.env.VITE_API_PATH;
 const API_BASE_URL = import.meta.env.VITE_API_BASE;
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,7 +35,7 @@ const Products = () => {
     <>
       <div className="container mt-5">
         <div className="row">
-          {products.map((product) => (
+          {products?.map((product) => (
             <div className="col-md-4 mb-3">
               <div className="card">
                 <img

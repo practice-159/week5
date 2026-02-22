@@ -1,6 +1,5 @@
 import { createHashRouter } from "react-router";
 
-import Login from "../views/Login";
 import Cart from "../views/front/Cart";
 import Home from "../views/front/Home";
 import Products from "../views/front/Products";
@@ -28,11 +27,6 @@ const routes = [
       {
         path: "cart",
         element: <Cart />,
-      },
-
-      {
-        path: "login",
-        element: <Login />,
       },
       {
         path: "*",
